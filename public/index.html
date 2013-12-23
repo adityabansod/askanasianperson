@@ -1,6 +1,184 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Flat file<img src="asdf.png"></h1>
-</body>
+	<head>
+	<title>Ask an Asian Person</title>
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	
+	<style type="text/css">
+	body
+	{
+		font-family:"HelveticaNeue-Light",Helvetica,Arial,FreeSans,sans-serif;
+		font-size:12px;
+		font-weight:normal;
+		color:#133855;
+		padding:.75em 0;
+	}
+	h1
+	{
+		font-size:44px;
+		text-align:center;
+		font-weight:normal;
+		color:#133855;
+		padding:.2em;
+		margin: 0;
+	}
+	p
+	{
+		font-size:16px;
+	}
+	.types
+	{
+		font-size:16px;
+		font-weight:bolder;
+	}
+	.attribution
+	{
+		font-size:12px;
+		font-weight:lighter;
+		font-style:italic;
+		text-align:right;
+	}
+	select
+	{
+		font-family:"HelveticaNeue-Light",Helvetica,Arial,FreeSans,sans-serif;
+		height:1.4em;
+		font-size:16px;
+		border:2px solid #b4b4b4;
+	}
+	hr
+	{
+		border:1px solid #b4b4b4;
+	}
+	</style>
+
+	<script language="JavaScript">
+	<!--
+	
+
+	$(document).ready(function(){
+	
+		$(".types").hide();
+	
+		$("#item").change(function(){
+			selectBest();
+		});
+		
+			
+		$("#location").change(function(){
+			selectBest();		
+		});
+		
+		function selectBest()
+		{
+			var type = $("#item").val().replace(/ /g , "");
+			var city = $("#location").val().replace(/ /g , "");
+			
+			var itemFound = false;
+					
+			$(".types").hide();
+			$("#" + type  + "." + city).toggle();
+			
+			// check that we acutally found something
+			//$("#" + type  + "." + city).each(function(){itemFound = true;});
+			
+			itemFound = $("#" + type  + "." + city).length > 0;
+			
+			
+			// we didn't find something, so set the default text
+			if(!itemFound)
+			{
+				$(".unknown").html("sorry, we don't know any good " + $("#item").val() + " in " + $("#location").val() + ". It may not exist.");
+				$(".unknown").toggle();
+			}
+		}
+		
+		// get started with a default selection
+		selectBest();
+		
+ 	});
+	-->
+	</script>
+	</head>
+
+	<body>
+	<form name="main">
+	<h1>Ask an Asian Person</h1>
+	
+	<p>Where are the best
+	
+	<select id="item">
+		<option>knife cut noodles</option>
+		<option>ramen</option>
+		<option>dumplings</option>
+		<option>tofu soup</option>
+		<option>bibimbap</option>
+		<option>hot pot</option>
+		<option>mapo doufu</option>
+	</select>
+	
+	in
+	
+	<select id="location" >
+		<option value = "sf">San Francisco</option>
+		<option value = "la">Los Angeles</option>
+		<option value = "ny">New York</option>
+	</select>
+	
+	?</p>
+	
+	<p>They're at:
+	<span class="types sf" id="knifecutnoodles" >
+	Shanghai House, 3641 Balboa Street (at 37th Ave), San Francisco.
+	</span>
+	<span class="types sf" id="dumplings" >
+	Shanghai Dumpling King, 3319 Balboa Street (at 34th Ave), San Francisco.
+	</span>
+	<span class="types sf" id="ramen" >
+	Tampopo, 1740 Buchanan Street (at Post), San Francisco.
+	</span>
+	<span class="types sf" id="tofusoup" >
+	My Tofu House, 4627 Geary Boulevard (at 11th Ave), San Francisco.
+	</span>
+	<span class="types sf" id="bibimbap" >
+	My Tofu House, 4627 Geary Boulevard (at 11th Ave), San Francisco.
+	</span>
+	<span class="types sf" id="hotpot" >
+	The Pots, 2652 Judah St (at 32nd Ave), San Francisco.
+	</span>
+	<span class="types sf" id="mapodoufu">
+	Panda Country Kitchen, 4737 Geary Boulevard (at 11th Ave), San Francisco.
+	</span>
+	
+	<span class="types la" id="ramen" ">
+	Daikokuya, 327 E 1st Street, Los Angeles.
+	</span>
+	<span class="types la" id="dumplings" >
+	tbd
+	</span>
+	
+	<span class="types ny" id="dumplings" >
+	Nan Shian Dumpling House, 38-12 Prince Street, Flushing.
+	</span>
+	
+	<span class="types unknown"/>
+
+	</p>
+	
+	</form>
+	
+	<hr/>
+	<p class="attribution">compiled by <a href="http://www.adityabansod.net">http://www.adityabansod.net</a></p>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5341653-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+	</body>
+
 </html>
